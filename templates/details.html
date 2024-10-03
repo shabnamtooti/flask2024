@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{%block titel%}
+index
+{% endblock %}
+{%block bg_color%}red{%endblock%}
+{%block content%}
+<a href="{{url_for('index')}}" class="btn btn-success">go back</a>
+<a href="{{url_for('index')}}" class="btn btn-success">delete</a>
+<a href="{{url_for('index')}}" class="btn btn-success">update</a>
+<h1>{{s.name}}</h1>
+<p>{{s.email}}</p>
+{%endblock%}

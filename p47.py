@@ -1,0 +1,72 @@
+from tkinter import Tk,Button,Entry,StringVar
+calc=Tk()
+calc.geometry('259x347')
+calc.title('calculator')
+op=''
+class myClass:
+    def btn(self,x):
+        if op.find('0')==0:
+            op=op[1:]  
+            textinput.set(op)
+    def eq(self):
+        global op
+        textinput.set(eval(op))
+        op=''
+    def c(self):
+        global op
+        textinput.set(eval(op))
+        op=''
+mc=myClass()
+if __name__ =='__main__':
+    textinput=StringVar()
+    e1=Entry(calc,font=('arial',16,'bold'),bd=4,textvariable=textinput,justify='right')
+    e1.grid(columnspan=4)
+    btn7=Button(calc,text='7',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('7'))
+    btn7.grid(row=1,column=0)
+    btn8=Button(calc,text='8',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('8'))
+    btn8.grid(row=1,column=1)
+    btn9=Button(calc,text='9',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('9'))
+    btn9.grid(row=1,column=2)
+    btnAdd=Button(calc,text='+',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('+'))
+    btnAdd.grid(row=1,column=3)
+    btn4=Button(calc,text='4',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('4'))
+    btn4.grid(row=1,column=0)
+    btn5=Button(calc,text='5',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('5'))
+    btn5.grid(row=1,column=1)
+    btn6=Button(calc,text='6',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('6'))
+    btn6.grid(row=1,column=2)
+    btnSub=Button(calc,text='-',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('-'))
+    btnSub.grid(row=1,column=3)
+    btn1=Button(calc,text='1',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('1'))
+    btn1.grid(row=3,column=0)
+    btn2=Button(calc,text='2',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('2'))
+    btn2.grid(row=3,column=1)
+    btn3=Button(calc,text='3',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('3'))
+    btn3.grid(row=3,column=2)
+    btnMul=Button(calc,text='*',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('*'))
+    btnMul.grid(row=3,column=3)
+    btnC=Button(calc,text='c',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.eq)
+    btnC.grid(row=4,column=0)
+    btn0=Button(calc,text='0',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('0'))
+    btn0.grid(row=4,column=1)
+    btnEqual=Button(calc,text='=',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('0'))
+    btnEqual.grid(row=4,column=2)
+    btnDiv=Button(calc,text='/',padx=10,pady=10,font=('arial',20,'bold'),bd=4,command=lambda:mc.btn('/'))
+    btnDiv.grid(row=4,column=3)
+    calc.bind('<Return>',lambda event:mc.eq())
+    calc.bind('1',lambda event:mc.btn(1))
+    calc.bind('2',lambda event:mc.btn(2))
+    calc.bind('3',lambda event:mc.btn(3))
+    calc.bind('4',lambda event:mc.btn(4))
+    calc.bind('5',lambda event:mc.btn(5))
+    calc.bind('6',lambda event:mc.btn(6))
+    calc.bind('7',lambda event:mc.btn(7))
+    calc.bind('8',lambda event:mc.btn(8))
+    calc.bind('9',lambda event:mc.btn(9))
+    calc.bind('0',lambda event:mc.btn(0))
+    calc.bind('+',lambda event:mc.btn('+'))
+    calc.bind('-',lambda event:mc.btn('-'))
+    calc.bind('*',lambda event:mc.btn('*'))
+    calc.bind('/',lambda event:mc.btn('/'))
+    calc.bind('c',lambda event:mc.btn('c'))
+    calc.mainloop()

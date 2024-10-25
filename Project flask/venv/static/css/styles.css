@@ -1,0 +1,28 @@
+body{
+    background:wheat;
+    color:white;
+    font-family:Arial,sans-serif;
+    margin:20px;
+}
+h1{
+    background:whitesmoke;
+    color:rebeccapurple;
+}
+button{
+    background:rosybrown;
+    color:royalblue;
+    border:none;
+    padding:10px;
+    cursor:pointer;
+}
+button:hover{
+    background:tan;
+    color:teal;
+}
+textarea{
+    background:thistle;
+    color:tomato;
+    width:10%;
+    height:20px;
+    margin: bottom 30px;
+}

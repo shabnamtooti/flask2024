@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="{{url_for('static',filename='css/style.css')}}">
+    <title>Sign up</title>
+</head>
+<body>
+    <h1>Sign up</h1>
+    <form action="{{url_for('register')}}"method='POST'>
+        <input type="text"name='username'placeholder='shabnamtooti' required>
+        <input type="password"name='password'placeholder='shabnam-00'required>
+        <button type="submit">Sign up</button>
+        </form>
+<div>
+    <a href="{{url_for('login')}}">Go to the login page</a>
+</div>
+</body>
+</html>

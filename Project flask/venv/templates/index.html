@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="{{url_for('static',filename='css/styles.css')}}">
+    <title>Shahin Pet Shop</title>
+</head>
+<body>
+    <h1>Shahin Pet Shop</h1>
+    <div>
+        {%for product in product%}
+        <div>
+        <h1>{{product.name}}</h1>
+            <p>price:{{product.price}}Rs</p>
+            <a href="{{url_for('add_to_cart',product_id=product.id)}}">Add to cart</a>
+        </div>
+        {%endfor%}
+    </div>
+    <form action="/search"method='GET'style='display:flex;justify-content:center;align-items:center;margin-bottom 20px;'>
+        <input type="text"name='query'placeholder='Search'required style="padding:10px;width:300px;margin:right 10px;">
+        <button type="submit"style='padding:10px 10px;'>Look after</button>
+    </form>
+    <h1>Our Products</h1>
+    </form>
+<div class="products">
+    <div class="product">
+        <h2>Product 1</h2>
+        <img src='https://th.bing.com/th/id/R.4d1b5e5e533a378fa479b00496a5a306?rik=z5OdM726Vn5hPA&pid=ImgRaw&r=0'>
+        <p>Products Description 1</p>
+        <p>price:30 Rs</p>
+        <button Add to cart></button>
+    </div>
+</div>
+<div class="products">
+    <div class="product">
+        <h2>Product 2</h2>
+        <img src='https://th.bing.com/th/id/R.49c62e9ddd1fc78bdfc8798a5bcabaa1?rik=x7UH05ZH2ivQwg&pid=ImgRaw&r=0'>
+        <p>Products Description 2</p>
+        <p>price:40 Rs</p>
+        <button Add to cart></button>
+    </div>
+<div class="products">
+    <div class="product">
+        <h2>Product 3</h2>
+        <img src='https://th.bing.com/th/id/R.0dfdcf803948acd918aa523ea777dd3c?rik=f6TNFnaNcKwPgg&pid=ImgRaw&r=0'>
+        <p>Products Description 3</p>
+        <p>price:50 Rs</p>
+        <button Add to cart></button>
+    </div>
+<div class="products">
+    <div class="product">
+        <h2>Product 4</h2>
+        <img src='https://th.bing.com/th/id/R.78c23934b09c3b629fe606e8e69996b1?rik=YOldbzlMX4r1sw&pid=ImgRaw&r=0'>
+        <p>Products Description 4</p>
+        <p>price:65 Rs</p>
+        <button Add to cart></button>
+    </div>
+<div class="products">
+    <div class="product">
+        <h2>Product 5</h2>
+        <img src='https://th.bing.com/th/id/R.f499b5fffb0849702c8fd1814b9ad568?rik=Of6%2fr3B9bIQW6A&pid=ImgRaw&r=0'>
+        <p>Products Description 5</p>
+        <p>price:67 Rs</p>
+        <button Add to cart></button>
+    </div>
+    <h1>Comments</h1>
+    <form action="{{url_for('add_comment')}}"method='POST'>
+        <textarea name="comment"placeholder='Leave Your Comments' required></textarea>
+        <button type="submit">Post Comments</button>
+    </form>
+    <div>
+        {%for comment in comments%}
+        <div>{{comment}}</div>
+        {%endfor%}
+    </div>
+    <h1>Scoring</h1>
+    <form action="{{url_for('rate')}}"method='POST'>
+        <label>Rate:</label>
+        <input type="radio"name='Awesome'value='1'>1<br>
+        <input type="radio"name='Great'value='2'>2<br>
+        <input type="radio"name='Good'value='3'>3<br>
+        <input type="radio"name='Too bad'value='4'>4<br>
+        <input type="radio"name='Bad'value='5'>5<br>
+        <button type="submit">Send</button>
+    </form>
+    <div>
+        <a href="{{url_for('register')}}">Sign up</a>
+        <a href="{{url_for('login')}}">Check in</a>
+    </div>
+    <h1>Cart</h1>
+    <div>
+        {%if session.cart%}
+        <ul>
+            {%for product_id in session.cart%}
+            {%for product in products%}
+            {%if product.id==product_id%}
+            <li>{{product.name}}-{{product.price}}Rs</li>
+            {%endif%}
+            {%endfor%}
+            {%endfor%}
+        </ul>
+        {%else%}
+        <p>The cart is empty</p>
+        {%endif%}
+    </div>
+</body>
+</html>
